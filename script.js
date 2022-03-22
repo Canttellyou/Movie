@@ -170,7 +170,7 @@ function showMovies(movies) {
       const overviewEl = `   <div class="overview overview-${index}">
       
       <div class="trailer-top"><div class="trailer">Trailer :</div>  <div class="close">X</div> </div> 
-     <div class="overview-video"><div class="loading">Loading&#8230;</div></div>
+     <div class="overview-video overview-video-${index}"><div class="loading">Loading&#8230;</div></div>
     <h4>Overview:</h4>
     ${overview}
           `;
@@ -202,33 +202,32 @@ function showMovies(movies) {
         document.querySelector(`.overview-${index}`).style.top = "-110%";
         overlay.classList.add("hide");
       });
+      async function video() {
+        const resp = await fetch(
+          `https://api.themoviedb.org/3/movie/${id}/videos?api_key=04c35731a5ee918f014970082a0088b1&language=en-US`
+        );
+        const respData = await resp.json();
+        respData.results.forEach((element) => {
+          if (
+            element.name === "Official Trailer" ||
+            element.name === "Official Teaser" ||
+            element.name === "Main Trailer" ||
+            element.name.includes("Trailer")
+          ) {
+            // overviewVideo.src = ``;
+            // src =
+            //   "https://www.youtube.com/embed/il_t1WVLNxk" >
+            document.querySelector(
+              `.overview-video-${index}`
+            ).innerHTML = ` <div><iframe width="100%" height="330" src="https://www.youtube.com/embed/${element.key}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>`;
+          }
+        });
+      }
+      video();
     }
     //videos
-    async function video() {
-      const resp = await fetch(
-        `https://api.themoviedb.org/3/movie/${id}/videos?api_key=04c35731a5ee918f014970082a0088b1&language=en-US`
-      );
-      const respData = await resp.json();
-      respData.results.forEach((element) => {
-        if (
-          element.name === "Official Trailer" ||
-          element.name === "Official Teaser" ||
-          element.name === "Main Trailer" ||
-          element.name.includes("Trailer")
-        ) {
-          // overviewVideo.src = ``;
-          // src =
-          //   "https://www.youtube.com/embed/il_t1WVLNxk" >
-          document.querySelectorAll(".movie").forEach((movie) => {
-            document.querySelector(
-              `.overview-video`
-            ).innerHTML = ` <div><iframe width="100%" height="330" src="https://www.youtube.com/embed/${element.key}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>`;
-          });
-        }
-      });
-    }
+
     cast();
-    video();
   });
 }
 
