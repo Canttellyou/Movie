@@ -212,8 +212,7 @@ function showMovies(movies) {
             element.name === "Official Trailer" ||
             element.name === "Official Teaser" ||
             element.name === "Main Trailer" ||
-            element.name.includes("Trailer") ||
-            element.name.includes("Teaser")
+            element.name.includes("Trailer")
           ) {
             // overviewVideo.src = ``;
             // src =
