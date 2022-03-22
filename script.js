@@ -224,6 +224,7 @@ function showMovies(movies) {
     }
     cast();
     video();
+    console.clear();
   });
 }
 
@@ -251,4 +252,3 @@ form.addEventListener("submit", (e) => {
     document.querySelector(".new-release").style.display = "none";
   }
 });
-console.clear();
