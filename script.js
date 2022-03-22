@@ -102,12 +102,15 @@ pageNum.addEventListener("click", function () {
     getMovies(
       `https://api.themoviedb.org/3/discover/movie?api_key=04c35731a5ee918f014970082a0088b1&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1&with_watch_monetization_types=flatrate`
     );
+    document.querySelector(".right").style.display = "initial";
+    document.querySelector(".left").style.display = "initial";
     pageNum.innerHTML = "Next Page";
   }
   if (pageNum.innerHTML === "Back To Homepage") {
     getMovies(APIURL);
     resDes.innerHTML = `Popular Movies :`;
-
+    document.querySelector(".right").style.display = "initial";
+    document.querySelector(".left").style.display = "initial";
     pageNum.innerHTML = "Next Page";
   }
 });
@@ -251,6 +254,8 @@ form.addEventListener("submit", (e) => {
     resDes.innerText = `Results for : "${search.value}" `;
     getMovies(SEARCHAPI + searchTerm);
     search.value = "";
+    document.querySelector(".right").style.display = "none";
+    document.querySelector(".left").style.display = "none";
     newTrailers.style.display = "none";
     document.querySelector(".new-release").style.display = "none";
   }
