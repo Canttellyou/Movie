@@ -178,7 +178,9 @@ function showMovies(movies) {
 
       main.insertAdjacentHTML("afterbegin", overviewEl);
       if (cast) {
-        overviewEl.insertAdjacentHTML("beforeend", castText);
+        document
+          .querySelector(`.overview-${index}`)
+          .insertAdjacentHTML("beforeend", castText);
       }
       //To open overview
       movieEl.addEventListener("click", () => {
