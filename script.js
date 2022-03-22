@@ -210,11 +210,9 @@ function showMovies(movies) {
           // src =
           //   "https://www.youtube.com/embed/il_t1WVLNxk" >
           document.querySelectorAll(".movie").forEach((movie) => {
-            document
-              .querySelector(`.overview-video`)
-              .appendChild(
-                ` <div><iframe width="100%" height="330" src="https://www.youtube.com/embed/${element.key}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>`
-              );
+            document.querySelector(
+              `.overview-video`
+            ).innerHTML = ` <div><iframe width="100%" height="330" src="https://www.youtube.com/embed/${element.key}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>`;
           });
         }
       });
