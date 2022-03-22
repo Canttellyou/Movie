@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <link rel="stylesheet" href="style.css" />
+    <title>Movie App</title>
+  </head>
+  <body>
+    <div class="overlay hide"></div>
+    <header>
+      <div class="logo">
+        <h1>Jay<span class="mdb">MDB.</span></h1>
+      </div>
+      <form id="form">
+        <input
+          type="text"
+          id="search"
+          placeholder="Search Movies"
+          class="search"
+        />
+      </form>
+    </header>
+
+    <div class="results">Popular Movies :</div>
+    <main><div class="spinning-loader"></div></main>
+    <div class="page-nav">
+      <span class="left">&#139; </span>
+      <h2 class="page-text">Prev | Next</h2>
+      <span class="right">&#155; </span>
+    </div>
+    <!-- <div class="movie">
+      <img
+        src="https://image.tmdb.org/t/p/w1280/bcCBq9N1EMo3daNIjWJ8kYvrQm6.jpg"
+        alt=""
+      />
+      <div class="movie-info">Movie Title<span>8.4</span></div>
+    </div> -->
+    <script src="script.js"></script>
+  </body>
+</html>

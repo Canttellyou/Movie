@@ -1,0 +1,357 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;400;600&display=swap");
+:root {
+  --s-loader-wrapper-bg-color: rgb(21, 22, 43);
+  --s-loader-width: 50px;
+  --s-loader-height: var(--s-loader-width);
+  --s-loader-border-color-trans: rgba(29, 161, 242, 0.2);
+  --s-loader-border-color-full: rgb(29, 161, 242);
+}
+@keyframes rotate-s-loader {
+  from {
+    transform: rotate(0);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+@keyframes open {
+  from {
+    scale: 0;
+    opacity: 0;
+  }
+  to {
+    scale: 1;
+    opacity: 1;
+  }
+}
+
+* {
+  box-sizing: border-box;
+}
+body {
+  background-color: #22254b;
+  font-family: "Poppins", sans-serif;
+  position: relative;
+}
+.remove {
+  transform: scale(0);
+}
+.overlay {
+  background-color: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(5px);
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  position: fixed;
+  z-index: 3;
+  animation: open 0.06s ease-in;
+}
+.spinning-loader {
+  width: var(--s-loader-width);
+  height: var(--s-loader-height);
+  border: 5px solid var(--s-loader-border-color-trans);
+  border-left-color: var(--s-loader-border-color-full);
+  border-radius: 50%;
+  background: transparent;
+  animation-name: rotate-s-loader;
+  animation-iteration-count: infinite;
+  animation-duration: 1s;
+  animation-timing-function: linear;
+  position: absolute;
+  top: 50%;
+  left: 49%;
+}
+.results {
+  font-size: 2.2rem;
+  font-weight: bolder;
+  padding-left: 1rem;
+  margin-top: 1rem;
+  color: transparent;
+  background-image: linear-gradient(
+    to bottom,
+    rgb(135, 209, 255),
+    rgb(11, 99, 155)
+  );
+  background-size: cover;
+  -webkit-background-clip: text;
+}
+.hide {
+  transform: scale(0);
+}
+main {
+  display: flex;
+  flex-wrap: wrap;
+  position: relative;
+}
+.movie {
+  position: relative;
+  background-color: #373b69;
+  border-radius: 3px;
+  box-shadow: 0 4px 5px rgba(0, 0, 0, 0.2);
+  width: 300px;
+  margin: 1rem;
+  overflow: hidden;
+}
+header {
+  background-color: #373b69;
+  padding: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.logo {
+  color: transparent;
+  background-image: linear-gradient(
+    to bottom,
+    rgb(135, 209, 255),
+    rgb(11, 99, 155)
+  );
+  background-size: cover;
+  -webkit-background-clip: text;
+  display: inline-block;
+  font-size: 1.2rem;
+  font-weight: 800;
+  cursor: pointer;
+}
+.mdb {
+  color: transparent;
+  background-image: linear-gradient(to top, #c28421, #e4d26c);
+  background-size: cover;
+  -webkit-background-clip: text;
+  display: inline-block;
+}
+.search {
+  padding: 0.6rem 1.5rem;
+  border-radius: 50px;
+  background-color: #22254b;
+  border: 2px solid #22254b;
+  font-size: 1rem;
+  color: #8b8ca3;
+}
+
+.search::placeholder {
+  color: #7679ac;
+  font-family: inherit;
+}
+.search:focus {
+  outline: none;
+  border-color: #8b8ca3;
+}
+.movie {
+  width: 22%;
+}
+.movie img {
+  width: 100%;
+}
+.movie-info {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.5rem 1rem 1rem;
+  color: #eee;
+  letter-spacing: 0.5px;
+  font-weight: bold;
+}
+.movie-info h3 {
+  margin: 0;
+}
+.movie-info span {
+  background-color: #22254b;
+  padding: 0.25rem 0.5rem;
+  border-radius: 3px;
+}
+.movie-info span.green {
+  color: rgb(39, 189, 39);
+}
+.movie-info span.orange {
+  color: orange;
+}
+.movie-info span.red {
+  color: rgb(189, 42, 42);
+}
+.overview {
+  /* background-color: rgb(11, 99, 155); */
+  background-image: linear-gradient(to top, rgb(7, 54, 83), rgb(11, 99, 155));
+
+  animation: open 0.06s ease-in;
+  color: white;
+  padding: 2rem;
+  position: fixed;
+  font-weight: bold;
+  max-width: 80%;
+  max-height: 80%;
+  overflow: auto;
+  z-index: 4;
+  top: 10%;
+  left: 10%;
+  border-radius: 5px;
+
+  transition: all 0.1s ease-out;
+}
+.close {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  font-size: 1.2rem;
+  padding: 0.2rem 0.5rem;
+  border-radius: 5px;
+  border: 2px solid black;
+  cursor: pointer;
+}
+.overview-img {
+  width: 20%;
+}
+
+.overview h4 {
+  margin-top: 0;
+}
+.overview-video {
+  width: 100%;
+}
+.movie:hover .overview {
+  transform: translateY(0);
+}
+.release {
+  margin-top: 0.5rem;
+}
+.cast {
+  margin-top: 0.5rem;
+}
+.page-nav {
+  display: flex;
+  color: rgb(74, 157, 209);
+  width: 100%;
+  justify-content: center;
+  margin-top: 1rem;
+}
+.page-text {
+  margin: auto 1rem;
+}
+.left,
+.right {
+  color: rgb(74, 157, 209);
+  font-size: 5.5rem;
+  width: 5rem;
+  height: 5rem;
+  text-align: center;
+  border-radius: 50%;
+  background-color: #373b69;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 0 13px rgba(0, 0, 0, 0.2);
+}
+/* Overview Spinner */
+.loading {
+  height: 2em;
+  width: 2em;
+  overflow: visible;
+  margin: 3rem auto;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+}
+
+/* :not(:required) hides these rules from IE9 and below */
+.loading:not(:required) {
+  /* hide "loading..." text */
+  font: 0/0 a;
+  color: transparent;
+  text-shadow: none;
+  border: 0;
+}
+
+.loading:not(:required):after {
+  content: "";
+  display: block;
+  font-size: 10px;
+  width: 1em;
+  height: 1em;
+  margin-top: -0.5em;
+  -webkit-animation: spinner 1500ms infinite linear;
+  -moz-animation: spinner 1500ms infinite linear;
+  -ms-animation: spinner 1500ms infinite linear;
+  -o-animation: spinner 1500ms infinite linear;
+  animation: spinner 1500ms infinite linear;
+  border-radius: 0.5em;
+  -webkit-box-shadow: rgba(0, 0, 0, 0.75) 1.5em 0 0 0,
+    rgba(0, 0, 0, 0.75) 1.1em 1.1em 0 0, rgba(0, 0, 0, 0.75) 0 1.5em 0 0,
+    rgba(0, 0, 0, 0.75) -1.1em 1.1em 0 0, rgba(0, 0, 0, 0.5) -1.5em 0 0 0,
+    rgba(0, 0, 0, 0.5) -1.1em -1.1em 0 0, rgba(0, 0, 0, 0.75) 0 -1.5em 0 0,
+    rgba(0, 0, 0, 0.75) 1.1em -1.1em 0 0;
+  box-shadow: rgba(0, 0, 0, 0.75) 1.5em 0 0 0,
+    rgba(0, 0, 0, 0.75) 1.1em 1.1em 0 0, rgba(0, 0, 0, 0.75) 0 1.5em 0 0,
+    rgba(0, 0, 0, 0.75) -1.1em 1.1em 0 0, rgba(0, 0, 0, 0.75) -1.5em 0 0 0,
+    rgba(0, 0, 0, 0.75) -1.1em -1.1em 0 0, rgba(0, 0, 0, 0.75) 0 -1.5em 0 0,
+    rgba(0, 0, 0, 0.75) 1.1em -1.1em 0 0;
+}
+
+/* Animation */
+
+@-webkit-keyframes spinner {
+  0% {
+    -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+@-moz-keyframes spinner {
+  0% {
+    -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+@-o-keyframes spinner {
+  0% {
+    -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+@keyframes spinner {
+  0% {
+    -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
