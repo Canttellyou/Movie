@@ -172,7 +172,7 @@ function showMovies(movies) {
           `;
       ///Placing the overview in the document
       const castText = `<div class="release">Released: ${release_date}</div>
-<div class="cast">Cast: ${cast[0].name}, ${cast[1].name}, ${cast[2].name}, ${cast[3].name}, ${cast[4].name}, ${cast[5].name}, ${cast[6].name},${cast[7].name},${cast[8].name},...</div>
+<div class="cast">Cast: ${cast[0].name}, ${cast[1].name}, ${cast[2].name}, ${cast[3].name}, ${cast[4].name}, ${cast[5].name}, ${cast[6].name}, ${cast[7].name}, ${cast[8].name}, ...</div>
       </div>`;
       main.appendChild(movieEl);
 
