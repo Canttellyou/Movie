@@ -1,4 +1,7 @@
-console.log = function () {};
+function silentErrorHandler() {
+  return true;
+}
+window.onerror = silentErrorHandler;
 let currentPage = 1;
 const APIKEY = "04c35731a5ee918f014970082a0088b1";
 const APIURL = `https://api.themoviedb.org/3/discover/movie?api_key=04c35731a5ee918f014970082a0088b1&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1&with_watch_monetization_types=flatrate`;
@@ -252,4 +255,3 @@ form.addEventListener("submit", (e) => {
     document.querySelector(".new-release").style.display = "none";
   }
 });
-console.clear();
