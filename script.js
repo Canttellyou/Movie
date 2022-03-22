@@ -169,14 +169,17 @@ function showMovies(movies) {
      <div class="overview-video"><div class="loading">Loading&#8230;</div></div>
     <h4>Overview:</h4>
     ${overview}
-          <div class="release">Released: ${release_date}</div>
+          `;
+      ///Placing the overview in the document
+      const castText = `<div class="release">Released: ${release_date}</div>
 <div class="cast">Cast: ${cast[0].name}, ${cast[1].name}, ${cast[2].name}, ${cast[3].name}, ${cast[4].name}, ${cast[5].name}, ${cast[6].name},${cast[7].name},${cast[8].name},...</div>
       </div>`;
-      ///Placing the overview in the document
-
       main.appendChild(movieEl);
-      main.insertAdjacentHTML("afterbegin", overviewEl);
 
+      main.insertAdjacentHTML("afterbegin", overviewEl);
+      if (cast) {
+        overviewEl.insertAdjacentHTML("beforeend", castText);
+      }
       //To open overview
       movieEl.addEventListener("click", () => {
         document.querySelector(`.overview-${index}`).style.top = "-2%";
