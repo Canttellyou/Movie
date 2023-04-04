@@ -29,7 +29,7 @@
   box-sizing: border-box;
 }
 body {
-  background-color: #101010;
+  background-color: #22254b;
   font-family: "Poppins", sans-serif;
   position: relative;
 }
@@ -97,7 +97,7 @@ main {
   overflow: hidden;
 }
 header {
-  background-color: #373b69;
+  background-color: #101010;
   padding: 2rem;
   display: flex;
   align-items: center;
